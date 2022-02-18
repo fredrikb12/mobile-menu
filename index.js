@@ -4,8 +4,8 @@ let resizeTimer;
 let fullNavMenu;
 
 window.onload = function () {
+  initialViewportWidth = window.innerWidth;
   fullNavMenu = document.querySelector(".tabbed-menu").cloneNode(true);
-  console.log(setBrowserSizeToName());
   renderMenu(setBrowserSizeToName());
 };
 
@@ -14,13 +14,11 @@ window.onresize = function () {
     clearTimeout(resizeTimer);
   }
   resizeTimer = setTimeout(() => {
-    console.log("rendering menu");
     renderMenu(setBrowserSizeToName());
   }, 150);
 };
 
 window.addEventListener("click", (e) => {
-  console.log(e.target);
   if (
     e.target.classList.contains("dropdown-item") ||
     e.target.getAttribute("id") == "dropdown-button"
@@ -78,9 +76,6 @@ function renderMenu(sizeName) {
 }
 
 function setBrowserSizeToName() {
-  initialViewportWidth = window.innerWidth;
-  console.log(initialViewportWidth);
-
   if (window.matchMedia("(max-width: 768px)").matches) {
     currentBrowserSize = "mobile";
   } else if (window.matchMedia("(max-width: 1024px)").matches) {
@@ -90,6 +85,5 @@ function setBrowserSizeToName() {
   } else {
     currentBrowserSize = "desktop";
   }
-  console.log(currentBrowserSize);
   return currentBrowserSize;
 }
