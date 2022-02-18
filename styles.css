@@ -65,6 +65,9 @@ body {
 .dropdown-content .button {
     width: 100%;
     border: none;
+    border-top: 1px solid rgb(177, 177, 177);
+    background-color: rgb(255, 239, 214);
+    padding: 10px 0;
 }
 
 .hidden {

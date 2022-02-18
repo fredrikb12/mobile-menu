@@ -59,20 +59,22 @@ function renderMenu(sizeName) {
     if (children.indexOf(child) > itemLimit - 2) {
       if (child.classList.contains("dropdown")) {
         child.addEventListener("mouseover", (e) => {
-          document.querySelector(".dropdown-content").classList.remove("hidden");
+          document
+            .querySelector(".dropdown-content")
+            .classList.remove("hidden");
         });
         child.addEventListener("mouseout", (e) => {
           document.querySelector(".dropdown-content").classList.add("hidden");
-        })
+        });
         return;
       }
+
       const childCopy = child.cloneNode(true);
       child.remove();
       childCopy.classList.add("dropdown-item");
       dropdown.appendChild(childCopy);
     }
   });
-  setMenuHeight(setBrowserSizeToName());
 }
 
 function setBrowserSizeToName() {
@@ -90,25 +92,4 @@ function setBrowserSizeToName() {
   }
   console.log(currentBrowserSize);
   return currentBrowserSize;
-}
-
-function setMenuHeight(sizeName) {
-  const nav = document.querySelector(".tabbed-menu");
-  switch (sizeName) {
-    case "mobile":
-      nav.style.height = "14vh";
-      break;
-    case "tablet":
-      nav.style.height = "12vh";
-      break;
-    case "laptop":
-      nav.style.height = "11vh";
-      break;
-    case "desktop":
-      nav.style.height = "10vh";
-      break;
-    default:
-      nav.style.height = "10vh";
-      break;
-  }
 }
