@@ -1,10 +1,7 @@
-let initialViewportWidth;
-let currentBrowserSize;
 let resizeTimer;
 let fullNavMenu;
 
 window.onload = function () {
-  initialViewportWidth = window.innerWidth;
   fullNavMenu = document.querySelector(".tabbed-menu").cloneNode(true);
   renderMenu(setBrowserSizeToName());
 };
@@ -76,6 +73,7 @@ function renderMenu(sizeName) {
 }
 
 function setBrowserSizeToName() {
+  let currentBrowserSize;
   if (window.matchMedia("(max-width: 768px)").matches) {
     currentBrowserSize = "mobile";
   } else if (window.matchMedia("(max-width: 1024px)").matches) {

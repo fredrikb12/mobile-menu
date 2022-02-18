@@ -12,12 +12,13 @@ body {
 .tabbed-menu {
   display: flex;
   flex: 1;
+  padding-left: 15px;
 }
 
 .tabbed-menu > * {
-  padding: 15px;
   flex: 1;
   background-color: #ddd;
+  padding: 15px;
 }
 
 .button {
