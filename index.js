@@ -28,7 +28,7 @@ window.addEventListener("click", (e) => {
 
 function renderMenu(sizeName) {
   document.querySelector(".tabbed-menu").remove();
-  document.body.appendChild(fullNavMenu.cloneNode(true));
+  document.body.prepend(fullNavMenu.cloneNode(true));
   const navParent = document.querySelector(".tabbed-menu");
   const children = Array.from(navParent.children);
   const dropdown = document.querySelector(".dropdown-content");
